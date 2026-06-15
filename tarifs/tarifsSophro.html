@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Massages Bien-être — Tarifs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: #f7f4ef;
+      color: #3a3a38;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .tarifs-wrap {
+      max-width: 680px;
+      width: 100%;
+      padding: 3rem 2.5rem;
+      background: #f7f4ef;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8a9e8a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0.5rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: #8a9e8a;
+    }
+
+    .tarifs-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 300;
+      line-height: 1.15;
+      color: #2c2c2a;
+      margin-bottom: 0.25rem;
+    }
+    .tarifs-title em {
+      font-style: italic;
+      color: #7a9478;
+    }
+
+    .tarifs-subtitle {
+      font-size: 14px;
+      color: #7a7a75;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, #c8d4c2, transparent);
+      margin-bottom: 2rem;
+    }
+
+    .soin-card {
+      border-bottom: 0.5px solid #d8d4cc;
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 1.5rem;
+    }
+    .soin-card:last-of-type {
+      border-bottom: none;
+    }
+
+    .soin-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 23px;
+      font-weight: 400;
+      color: #2c2c2a;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .soin-name em {
+      font-style: italic;
+      color: #7a9478;
+    }
+
+    .soin-duree {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9a9a92;
+      margin-bottom: 10px;
+    }
+
+    .soin-desc {
+      font-size: 13.5px;
+      color: #6a6a65;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .prix-col {
+      text-align: right;
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .prix-badge {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #4a6448;
+      background: #eaf2e6;
+      border-radius: 20px;
+      padding: 4px 16px;
+      margin-bottom: 6px;
+    }
+
+    .prix-alt {
+      font-size: 12px;
+      color: #9a9a92;
+      font-weight: 300;
+      display: block;
+    }
+
+    .soin-exclusif {
+      background: #ffffff;
+      border: 1px solid #d8d4cc;
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      margin: 1.25rem 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .exclusif-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7a9478;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .duo-mention {
+      margin-top: 1.5rem;
+      font-size: 14px;
+      color: #6a6a65;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .attention-bloc {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      border-left: 2px solid #c8d4c2;
+    }
+
+    .attention-titre {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8a9e8a;
+      margin-bottom: 10px;
+    }
+
+    .attention-item {
+      font-size: 12.5px;
+      color: #8a8a82;
+      font-weight: 300;
+      line-height: 1.75;
+      list-style: none;
+      padding-left: 0;
+    }
+    .attention-item + .attention-item {
+      margin-top: 4px;
+    }
+
+    @media (max-width: 520px) {
+      .tarifs-wrap { padding: 2rem 1.25rem; }
+      .tarifs-title { font-size: 32px; }
+      .soin-card, .soin-exclusif { grid-template-columns: 1fr; }
+      .prix-col { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="tarifs-wrap">
+
+    <div class="section-label">Sophrologie</div>
+   <!--<h1 class="tarifs-title">Les soins <em>du corps</em></h1>-->
+    <p class="tarifs-subtitle">Des séances en cabinet ou en extérieur, individuelles ou en groupe — adaptées à votre rythme et à votre besoin.</p>
+    <div class="divider"></div>
+
+    <div class="soin-card">
+      <div>
+        <div class="soin-name"><em>Suivi individuel - Séance adulte personnalisée</em></div>
+        <div class="soin-duree">1h</div>
+        <p class="soin-desc">Accompagnement de minimum 5 séances, entièrement adaptées à votre problématique personnelle. En cabinet ou en extérieur, selon votre préférence.</p>
+      </div>
+      <div class="prix-col">
+        <span class="prix-badge">60€</span>
+
+      </div>
+    </div>
+
+    <div class="soin-card">
+      <div>
+        <div class="soin-name"><em>En groupe - Sophro-relax</em></div>
+        <div class="soin-duree">1h</div>
+        <p class="soin-desc">Une heure de détente profonde en groupe pour relâcher les tensions et retrouver calme et légèreté.</p>
+      </div>
+      <div class="prix-col">
+        <span class="prix-badge">12€</span>
+      </div>
+    </div>
+
+    <div class="soin-card">
+      <div>
+        <div class="soin-name"><em>En groupe · Plein air - Sophro-balade en baie ou en forêt</em></div>
+        <div class="soin-duree">1h30</div>
+        <p class="soin-desc">Marche en conscience, ancrage, respiration, contemplation dans un paysage magique. Se connecter à son corps, être à l'écoute de ses sensations, éveiller ses 5 sens.</p>
+      </div>
+      <div class="prix-col">
+        <span class="prix-badge">20€</span>
+      </div>
+    </div>
+
+    <div class="soin-card">
+      <div>
+        <span class="exclusif-label">Collectif - Atelier en entreprise ou milieu scolaire</span>
+        <p class="soin-desc">Interventions sur mesure pour les équipes ou les établissements scolaires. Contenu et format adaptés à votre contexte.</p>
+      </div>
+      <div class="prix-col">
+        <span class="prix-badge">Tarif sur devis</span>
+      </div>
+    </div>
+  
+  </div>
+</body>
+</html>

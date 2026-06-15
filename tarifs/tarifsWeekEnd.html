@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cercles & Événements — Tarifs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: #f7f4ef;
+      color: #3a3a38;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .tarifs-wrap {
+      max-width: 680px;
+      width: 100%;
+      padding: 3rem 2.5rem;
+      background: #f7f4ef;
+    }
+
+    /* ---- Éléments communs ---- */
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8a9e8a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0.5rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: #8a9e8a;
+    }
+
+    .bloc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 1.15;
+      color: #2c2c2a;
+      margin-bottom: 0.2rem;
+    }
+    .bloc-title em {
+      font-style: italic;
+      color: #7a9478;
+    }
+
+    .sous-titre {
+      font-size: 13px;
+      color: #9a9a92;
+      font-weight: 300;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 0.75rem;
+    }
+
+    .seance-ligne {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0.75rem 0 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .seance-duree {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9a9a92;
+    }
+
+    .prix-badge {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #4a6448;
+      background: #eaf2e6;
+      border-radius: 20px;
+      padding: 4px 16px;
+    }
+
+    .desc {
+      font-size: 13.5px;
+      color: #6a6a65;
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #9a9a92;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .divider-section {
+      height: 1px;
+      background: linear-gradient(to right, #c8d4c2, transparent);
+      margin: 3rem 0;
+    }
+
+    .divider-light {
+      height: 1px;
+      background: #e8e4dc;
+      margin: 2rem 0;
+    }
+
+    /* ---- Soin exclusif (carte blanche) ---- */
+    .soin-exclusif {
+      background: #ffffff;
+      border: 1px solid #d8d4cc;
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+    }
+
+    .exclusif-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7a9478;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    @media (max-width: 520px) {
+      .tarifs-wrap { padding: 2rem 1.25rem; }
+      .bloc-title { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="tarifs-wrap">
+
+     <!-- WEEK-END DE RESSOURCEMENT -->
+    <div class="section-label">Retraite féminine</div>
+    <h2 class="bloc-title">Week-end de ressourcement <em>au féminin</em></h2>
+
+    <div class="seance-ligne">
+      <span class="seance-duree">Tarif selon thème et lieu</span>
+    </div>
+
+    <p class="desc">Une véritable parenthèse bien-être entre femmes pour accéder plus en profondeur au féminin sacré et sauvage, et partager en toute sororité autour de cercles, de rituels, d'activités créatives et nature, de lectures d'oracles, de réveil spirituel, de voyage chamanique, de sophro-ballade et de surprises.</p>
+    <p class="desc">Un espace sacré créé pour vous afin de vivre 3 jours magiques et uniques de ressourcement, de reconnexion à soi-même, de détente, de découverte dans des lieux merveilleux et hautement énergétiques.</p>
+
+    <div class="divider-section"></div>
+
+
+
+  </div>
+</body>
+</html>

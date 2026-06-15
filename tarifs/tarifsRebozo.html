@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cercles & Événements — Tarifs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: #f7f4ef;
+      color: #3a3a38;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .tarifs-wrap {
+      max-width: 680px;
+      width: 100%;
+      padding: 3rem 2.5rem;
+      background: #f7f4ef;
+    }
+
+    /* ---- Éléments communs ---- */
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8a9e8a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0.5rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: #8a9e8a;
+    }
+
+    .bloc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 1.15;
+      color: #2c2c2a;
+      margin-bottom: 0.2rem;
+    }
+    .bloc-title em {
+      font-style: italic;
+      color: #7a9478;
+    }
+
+    .sous-titre {
+      font-size: 13px;
+      color: #9a9a92;
+      font-weight: 300;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 0.75rem;
+    }
+
+    .seance-ligne {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0.75rem 0 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .seance-duree {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9a9a92;
+    }
+
+    .prix-badge {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #4a6448;
+      background: #eaf2e6;
+      border-radius: 20px;
+      padding: 4px 16px;
+    }
+
+    .desc {
+      font-size: 13.5px;
+      color: #6a6a65;
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #9a9a92;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .divider-section {
+      height: 1px;
+      background: linear-gradient(to right, #c8d4c2, transparent);
+      margin: 3rem 0;
+    }
+
+    .divider-light {
+      height: 1px;
+      background: #e8e4dc;
+      margin: 2rem 0;
+    }
+
+    /* ---- Soin exclusif (carte blanche) ---- */
+    .soin-exclusif {
+      background: #ffffff;
+      border: 1px solid #d8d4cc;
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+    }
+
+    .exclusif-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7a9478;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    @media (max-width: 520px) {
+      .tarifs-wrap { padding: 2rem 1.25rem; }
+      .bloc-title { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="tarifs-wrap">
+
+
+    <!-- SOIN RITUEL REBOZO -->
+    <div class="soin-exclusif">
+      <span class="exclusif-label">Soin exclusif · pour les femmes</span>
+      <h2 class="bloc-title">Soin rituel <em>Rebozo</em></h2>
+
+      <div class="seance-ligne" style="margin-top: 1rem;">
+        <span class="seance-duree">3h</span>
+        <span class="prix-badge">200€</span>
+      </div>
+
+      <p class="desc">Un soin merveilleux vécu comme un rite de passage pour accompagner tous les grands moments de la vie d'une femme. Un moment unique de sororité où je prends soin de vous pendant 3 heures — temps de paroles, massage, bain, sudation et serrage avec le Rebozo traditionnel mexicain.</p>
+      <p class="note">Déplacement possible à votre domicile selon secteur, supplément 20€.</p>
+    </div>
+
+  </div>
+</body>
+</html>

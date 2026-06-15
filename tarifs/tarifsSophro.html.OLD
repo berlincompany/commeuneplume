@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Séances & Tarifs — Comme une plume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #F5F1EA;
+      --dark:     #2B2B28;
+      --sage:     #7A9E7E;
+      --sage-light: #B5CEB8;
+      --text:     #4A4A43;
+      --muted:    #8A8A7E;
+      --divider:  #DDD8CC;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── NAV (reprise du style original) ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 5%;
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--divider);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--sage); font-style: italic; }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--dark);
+      font-weight: 400;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--sage); }
+    .btn-rdv {
+      background: var(--sage);
+      color: #fff !important;
+      padding: .55rem 1.4rem;
+      border-radius: 100px;
+      font-size: .72rem !important;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .btn-rdv:hover { background: #5f8463 !important; color: #fff !important; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 10% 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 1px;
+      background: var(--sage);
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--sage);
+    }
+    .hero p {
+      font-size: 1rem;
+      color: var(--text);
+      max-width: 480px;
+      margin-bottom: 2.4rem;
+    }
+
+    /* ── SECTION GRID ── */
+    .section {
+      padding: 5rem 10%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── GRILLE DE TARIFS ── */
+    .tarifs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 700px) {
+      .tarifs-grid { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+      .hero { padding: 3rem 6% 2rem; }
+      .section { padding: 3rem 6%; }
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      padding: 2.4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,.07);
+      transform: translateY(-3px);
+    }
+    .card.featured {
+      background: var(--dark);
+      border-color: var(--dark);
+      grid-column: 1 / -1;
+    }
+    .card-eyebrow {
+      font-size: .68rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .card.featured .card-eyebrow { color: var(--sage-light); }
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .card.featured .card-title { color: #fff; }
+    .card-desc {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .card.featured .card-desc { color: #ccc9bd; }
+    .card-price {
+      margin-top: auto;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--divider);
+      display: flex;
+      align-items: baseline;
+      gap: .4rem;
+    }
+    .card.featured .card-price { border-top-color: rgba(255,255,255,.15); }
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--dark);
+    }
+    .card.featured .price-amount { color: #fff; }
+    .price-label {
+      font-size: .78rem;
+      color: var(--muted);
+      letter-spacing: .05em;
+    }
+    .card.featured .price-label { color: #a3a08e; }
+
+    .card-devis {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--sage);
+      margin-top: auto;
+      padding-top: 1.2rem;
+    }
+
+    /* ── NOTICE ── */
+    .notice {
+      margin-top: 3.5rem;
+      padding: 2rem 2.4rem;
+      border-left: 3px solid var(--sage);
+      background: rgba(122,158,126,.07);
+      border-radius: 0 4px 4px 0;
+    }
+    .notice-label {
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: .6rem;
+    }
+    .notice p {
+      font-size: .9rem;
+      color: var(--text);
+      line-height: 1.75;
+    }
+    .notice em { font-style: italic; color: var(--muted); }
+
+    /* ── SÉPARATEUR ── */
+    .divider-line {
+      height: 1px;
+      background: var(--divider);
+      margin: 0 10%;
+    }
+
+    /* ── CTA FINAL ── */
+    .cta-band {
+      padding: 5rem 10%;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .cta-band h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 300;
+      color: var(--dark);
+    }
+    .cta-band h2 em { font-style: italic; color: var(--sage); }
+    .cta-buttons { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--dark);
+      color: #fff;
+      text-decoration: none;
+      padding: .85rem 2rem;
+      border-radius: 100px;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: background .2s;
+    }
+    .btn-primary:hover { background: #444440; }
+    .btn-secondary {
+      font-size: .82rem;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: .05em;
+    }
+    .btn-secondary:hover { color: var(--sage); }
+    .btn-secondary::after { content: ' →'; }
+
+    /* ── SECTION TITLE ── */
+    .section-title-block {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 10%;
+    }
+    .section-title-block h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      color: var(--dark);
+      margin-bottom: .5rem;
+    }
+    .section-title-block h2 em { font-style: italic; color: var(--sage); }
+    .section-title-block p {
+      font-size: .88rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">Comme <span>une plume</span></a>
+    <ul class="nav-links">
+      <li><a href="#">Prestations</a></li>
+      <li><a href="#">À propos</a></li>
+      <li><a href="#">Témoignages</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Sophrologie &amp; Bien-être · Baie de Somme</div>
+    <h1>Séances<br>&amp; <em>tarifs</em></h1>
+    <p>Des séances en cabinet ou en extérieur, individuelles ou en groupe — adaptées à votre rythme et à votre besoin.</p>
+  </div>
+
+  <div class="divider-line"></div>
+
+  <!-- GRILLE DE TARIFS -->
+  <div class="section">
+    <div class="section-title-block" style="padding:0; margin-bottom:0;">
+    </div>
+
+    <div class="tarifs-grid">
+
+      <!-- Séance adulte individuelle — featured -->
+      <div class="card featured">
+        <div class="card-eyebrow">Suivi individuel</div>
+        <div class="card-title">Séance adulte personnalisée</div>
+        <div class="card-desc">Accompagnement de minimum 5 séances, entièrement adaptées à votre problématique personnelle. En cabinet ou en extérieur, selon votre préférence.</div>
+        <div class="card-price">
+          <span class="price-amount">60€</span>
+          <span class="price-label">/ séance · 1h</span>
+        </div>
+      </div>
+
+      <!-- Sophro-relax -->
+      <div class="card">
+        <div class="card-eyebrow">En groupe</div>
+        <div class="card-title">Sophro-relax</div>
+        <div class="card-desc">Une heure de détente profonde en groupe pour relâcher les tensions et retrouver calme et légèreté.</div>
+        <div class="card-price">
+          <span class="price-amount">12€</span>
+          <span class="price-label">/ pers · 1h</span>
+        </div>
+      </div>
+
+      <!-- Sophro-balade -->
+      <div class="card">
+        <div class="card-eyebrow">En groupe · Plein air</div>
+        <div class="card-title">Sophro-balade en baie ou en forêt</div>
+        <div class="card-desc">Marche en conscience, ancrage, respiration, contemplation dans un paysage magique. Se connecter à son corps, être à l'écoute de ses sensations, éveiller ses 5 sens.</div>
+        <div class="card-price">
+          <span class="price-amount">20€</span>
+          <span class="price-label">/ pers · 1h30</span>
+        </div>
+      </div>
+
+      <!-- Entreprise -->
+      <div class="card" style="grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+        <div>
+          <div class="card-eyebrow">Collectif</div>
+          <div class="card-title">Atelier en entreprise ou milieu scolaire</div>
+          <div class="card-desc" style="max-width: 520px; margin-top: .4rem;">Interventions sur mesure pour les équipes ou les établissements scolaires. Contenu et format adaptés à votre contexte.</div>
+        </div>
+        <div class="card-devis">Sur devis →</div>
+      </div>
+
+    </div>
+
+    <!-- NOTICE -->
+    <div class="notice">
+      <div class="notice-label">À noter</div>
+      <p>La <strong>1ère séance dure 1h30</strong> (au même tarif) et comprend une partie questionnaire <em>(anamnèse)</em> pour vérifier que la pratique de la sophrologie n'est pas contre-indiquée pour vous, suivie d'une partie pratique découverte de la sophrologie.</p>
+    </div>
+  </div>
+
+  <div class="divider-line"></div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>Prête à vous <em>reconnecter ?</em></h2>
+    <div class="cta-buttons">
+      <a href="#" class="btn-secondary">Découvrir les soins</a>
+    </div>
+  </div>
+
+</body>
+</html>
