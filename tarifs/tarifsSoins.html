@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soins Énergétiques — Tarifs</title>
+  <title>Massages Bien-être — Tarifs</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -58,19 +58,65 @@
       color: #7a9478;
     }
 
-    .seance-ligne {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 0.75rem 0 1.5rem;
+    .tarifs-subtitle {
+      font-size: 14px;
+      color: #7a7a75;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
     }
 
-    .seance-duree {
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, #c8d4c2, transparent);
+      margin-bottom: 2rem;
+    }
+
+    .soin-card {
+      border-bottom: 0.5px solid #d8d4cc;
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 1.5rem;
+    }
+    .soin-card:last-of-type {
+      border-bottom: none;
+    }
+
+    .soin-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 23px;
+      font-weight: 400;
+      color: #2c2c2a;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .soin-name em {
+      font-style: italic;
+      color: #7a9478;
+    }
+
+    .soin-duree {
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #9a9a92;
+      margin-bottom: 10px;
+    }
+
+    .soin-desc {
+      font-size: 13.5px;
+      color: #6a6a65;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .prix-col {
+      text-align: right;
+      white-space: nowrap;
+      padding-top: 2px;
     }
 
     .prix-badge {
@@ -82,41 +128,46 @@
       background: #eaf2e6;
       border-radius: 20px;
       padding: 4px 16px;
+      margin-bottom: 6px;
     }
 
-    .divider {
-      height: 1px;
-      background: linear-gradient(to right, #c8d4c2, transparent);
-      margin-bottom: 2rem;
-    }
-
-    .soin-bloc {
-      margin-bottom: 2rem;
-    }
-
-    .soin-nom {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 400;
-      color: #2c2c2a;
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
-    .soin-nom em {
-      font-style: italic;
-      color: #7a9478;
-    }
-
-    .soin-desc {
-      font-size: 13.5px;
-      color: #6a6a65;
+    .prix-alt {
+      font-size: 12px;
+      color: #9a9a92;
       font-weight: 300;
-      line-height: 1.75;
+      display: block;
     }
 
-    .soin-bloc + .soin-bloc {
-      padding-top: 1.75rem;
-      border-top: 0.5px solid #d8d4cc;
+    .soin-exclusif {
+      background: #ffffff;
+      border: 1px solid #d8d4cc;
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      margin: 1.25rem 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .exclusif-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7a9478;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .duo-mention {
+      margin-top: 1.5rem;
+      font-size: 14px;
+      color: #6a6a65;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      line-height: 1.6;
     }
 
     .attention-bloc {
@@ -139,40 +190,68 @@
       color: #8a8a82;
       font-weight: 300;
       line-height: 1.75;
+      list-style: none;
+      padding-left: 0;
+    }
+    .attention-item + .attention-item {
+      margin-top: 4px;
     }
 
     @media (max-width: 520px) {
       .tarifs-wrap { padding: 2rem 1.25rem; }
       .tarifs-title { font-size: 32px; }
+      .soin-card, .soin-exclusif { grid-template-columns: 1fr; }
+      .prix-col { text-align: left; }
     }
   </style>
 </head>
 <body>
   <div class="tarifs-wrap">
 
-    <div class="section-label">Soins énergétiques</div>
-    <h1 class="tarifs-title">Les soins <em>de l'énergie</em></h1>
-
-    <div class="seance-ligne">
-      <span class="seance-duree">Séance · 1h</span>
-      <span class="prix-badge">60€</span>
-    </div>
+	<div class="section-label">Soins énergétiques</div>
+		<h1 class="tarifs-title">Les soins <em>de l'énergie</em></h1>
 
     <div class="divider"></div>
 
-    <div class="soin-bloc">
-      <div class="soin-nom"><em>Reiki</em></div>
-      <p class="soin-desc">Soin d'harmonisation des systèmes énergétiques qui stimule les capacités naturelles d'auto-guérison. Soin apportant vitalité et aussi apaisement. Il se pratique allongé et habillé. Il libère l'énergie stagnante afin de libérer les blocages énergétiques et il calme le mental.</p>
+
+    <div class="soin-card">
+      <div>
+        <div class="soin-name"><em>Reiki</em></div>
+        <div class="soin-duree">1h</div>
+        <p class="soin-desc">Soin d'harmonisation des systèmes énergétiques qui stimule les capacités naturelles d'auto-guérison. Soin apportant vitalité et aussi apaisement. Il se pratique allongé et habillé. Il libère l'énergie stagnante afin de libérer les blocages énergétiques et il calme le mental.</p>
+      </div>
+      <div class="prix-col">
+		<span class="prix-badge">60€</span>
+      </div>
+    </div>
+    <div class="soin-card">
+      <div>
+        <div class="soin-name"><em>Relaxation sonore aux bols chantants</em></div>
+        <div class="soin-duree">1h</div>
+        <p class="soin-desc">Ce massage sonore permet l'harmonisation des chakras, l'activation des capacités d'auto-guérison en soutenant le système immunitaire, la stimulation de l'énergie et de la vitalité, l'augmentation du taux vibratoire, la libération des blocages, la détente physique et mentale profonde, la réduction du stress.</p>
+      </div>
+      <div class="prix-col">
+        <span class="prix-badge">60€</span>
+      </div>
+    </div>
+    <div class="soin-card">
+      <div>
+        <div class="soin-name"><em>Soin chamanique</em></div>
+        <div class="soin-duree">1h</div>
+        <p class="soin-desc">Harmonisation de l'aura, nettoyage énergétique, réparations des blessures émotionnelles au son du tambour.</p>
+      </div>
+      <div class="prix-col">
+        <span class="prix-badge">80€</span>
+      </div>
     </div>
 
-    <div class="soin-bloc">
-      <div class="soin-nom">Relaxation sonore aux <em>bols chantants</em></div>
-      <p class="soin-desc">Ce massage sonore permet l'harmonisation des chakras, l'activation des capacités d'auto-guérison en soutenant le système immunitaire, la stimulation de l'énergie et de la vitalité, l'augmentation du taux vibratoire, la libération des blocages, la détente physique et mentale profonde, la réduction du stress.</p>
-    </div>
+
+
 
     <div class="attention-bloc">
       <div class="attention-titre">À noter</div>
-      <p class="attention-item">Les soins énergétiques ne remplacent pas un traitement médical et ne dispensent pas du diagnostic d'un professionnel de santé.</p>
+      <p class="attention-item">Les massages bien-être ne sont pas recommandés aux femmes enceintes lors du 1er trimestre.</p>
+      <p class="attention-item">Ces soins ne sont pas des massages de kinésithérapie ni des massages érotiques.</p>
     </div>
 
   </div>

@@ -686,8 +686,6 @@ main {
   margin-bottom: 0.15rem;
 }
 
-
-
 .contact-right {
   background: rgba(255,255,255,0.04);
   padding: 5rem 6rem 5rem 4rem;
@@ -1078,6 +1076,252 @@ css.modal-overlay {
   .modal-header { padding: 1rem 1.5rem 1.5rem; }
   .modal-header h2 { font-size: 1.6rem; }
 }
+
+
+/* ---- CARROUSEL ---- */
+.carousel-section {
+  background: var(--cream);
+  padding: 4rem 2rem;   /
+ 
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(122, 102, 82, 0.1);
+  border: 1px solid rgba(212, 196, 168, 0.3);
+}
+
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  aspect-ratio: 4 / 3;   /* uniforme desktop ET mobile */
+  background: #000;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* "contain" au lieu de "cover" → pas de recadrage */
+  display: block;
+}
+
+
+/* Boutons Flèches */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--sand);
+  color: var(--earth-dark);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.carousel-btn:hover {
+  background: var(--sage);
+  color: white;
+  border-color: var(--sage);
+}
+
+.prev-btn { left: 1.5rem; }
+.next-btn { right: 1.5rem; }
+
+/* Points de navigation du bas */
+.carousel-nav {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 5;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(122, 102, 82, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: var(--sage);
+  transform: scale(1.2);
+  width: 18px; /* Effet de pilule moderne pour le point actif */
+  border-radius: 4px;
+}
+
+/* Ajustement Responsive mobile */
+
+@media (max-width: 768px) {
+  .carousel-section {
+    padding: 4rem 2rem;
+  }
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  .prev-btn { left: 0.5rem; }
+  .next-btn { right: 0.5rem; }
+}
+
+/* ---- CARROUSEL MOBILE DÉDIÉ ---- */
+
+/* Le carousel desktop (dans .about-image) est caché sur mobile */
+@media (max-width: 1024px) {
+  .about-image .carousel-section {
+    display: none;
+  }
+}
+
+/* Le carousel mobile est caché sur desktop */
+.carousel-mobile-section {
+  display: none;
+  background: var(--cream);
+  padding: 3rem 1.2rem 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .carousel-mobile-section {
+    display: block;
+  }
+}
+
+.carousel-mobile-section .section-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.carousel-mobile-section .section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: var(--sage);
+}
+
+.carousel-mobile-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  font-weight: 300;
+  color: var(--earth-dark);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.carousel-mobile-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(122, 102, 82, 0.12);
+  border: 1px solid rgba(212, 196, 168, 0.3);
+}
+
+.carousel-mobile-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%;
+  /* Touch swipe support */
+  touch-action: pan-y;
+}
+
+.carousel-mobile-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  aspect-ratio: 4 / 3;
+  background: #000;
+}
+
+.carousel-mobile-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Boutons flèches mobile */
+.carousel-mobile-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(250, 247, 242, 0.88);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--sand);
+  color: var(--earth-dark);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+.carousel-mobile-btn:hover,
+.carousel-mobile-btn:active {
+  background: var(--sage);
+  color: white;
+  border-color: var(--sage);
+}
+.prev-mobile-btn { left: 0.5rem; }
+.next-mobile-btn { right: 0.5rem; }
+
+/* Points de navigation mobile */
+.carousel-mobile-nav {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 5;
+}
+
+.carousel-mobile-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(122, 102, 82, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.carousel-mobile-dot.active {
+  background: var(--sage);
+  width: 16px;
+  border-radius: 4px;
+}
 </style>
 </head>
 <body>
@@ -1171,12 +1415,6 @@ css.modal-overlay {
       <p>Escapades bien-être immersives pour un retour à soi au cœur des paysages apaisants de la Baie de Somme.</p>
 	  <a href="javascript:void(0)" onclick="openModal('TarifsWeekEnd')">Tarifs</a>
     </div>
-	<div class="service-card">
-      <div class="service-icon">☀️</div>
-      <h3>Soin exclusif · pour les femmes</h3>
-      <p>Soin rituel Rebozo</p>
-	  <a href="javascript:void(0)" onclick="openModal('TarifsRebozo')">Tarifs</a>
-    </div>
 
   </div>
 </section>
@@ -1184,8 +1422,58 @@ css.modal-overlay {
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-image">   
-	<img src="img/ShirleyLascols2.jpg"	alt="Shirley Lascols"/>
-    <div class="about-image-overlay"></div>
+	<!--<img src="img/ShirleyLascols2.jpg"	alt="Shirley Lascols"/>
+    <div class="about-image-overlay"></div>-->
+	
+<!-- CARROUSSEL DESKTOP (affiché uniquement sur ordinateur)-->	
+	<section class="section carousel-section" id="galerie">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Galerie d'images</div>
+      <h2>Une parenthèse <em>en images</em></h2>
+    </div>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel-track">
+	 <!-- Image -->
+      <div class="carousel-slide">
+        <img src="img/ShirleyLascols2.jpg" alt="Cadre apaisant en Baie de Somme">
+      </div>
+      <!-- Image 1 -->
+        <div class="carousel-slide">
+        <img src="img/cabinet2.jpg" alt="Cadre apaisant en Baie de Somme">
+      </div>
+      <!-- Image 2 -->
+        <div class="carousel-slide">
+        <img src="img/cabinet3.jpg" alt="Cadre apaisant en Baie de Somme">
+      </div>
+      <!-- Image 3  -->
+       <div class="carousel-slide">
+        <img src="img/cabinet4.jpg" alt="Cadre apaisant en Baie de Somme">
+      </div>
+      <!-- Image 4 -->
+      <div class="carousel-slide">
+        <img src="img/cabinet1.jpg" alt="Cadre apaisant en Baie de Somme">
+      </div>
+
+    </div>
+
+    <!-- Boutons de navigation -->
+    <button class="carousel-btn prev-btn" aria-label="Image précédente">❮</button>
+    <button class="carousel-btn next-btn" aria-label="Image suivante">❯</button>
+
+    <!-- Indicateurs (Points du bas) -->
+    <div class="carousel-nav">
+      <div class="carousel-dot active"></div>
+      <div class="carousel-dot"></div>
+      <div class="carousel-dot"></div>
+      <div class="carousel-dot"></div>
+    </div>
+  </div>
+</section>
+	
+	
   </div>
   <div class="about-content">
     <div class="section-eyebrow">À propos</div>
@@ -1208,6 +1496,47 @@ css.modal-overlay {
         <span class="certif-value">Baie de Somme</span>
       </div>
     </div>
+	
+  </div>
+</section>
+
+
+
+
+<!-- CARROUSEL MOBILE (affiché uniquement sur mobile) -->
+<section class="carousel-mobile-section" id="galerie-mobile" aria-label="Galerie d'images">
+  <div class="section-eyebrow">Galerie d'images</div>
+  <h2>Une parenthèse <em>en images</em></h2>
+
+  <div class="carousel-mobile-container">
+    <div class="carousel-mobile-track">
+      <div class="carousel-mobile-slide">
+        <img src="img/mobile-ShirleyLascols2.jpg" alt="Cadre apaisant en Baie de Somme" loading="lazy">
+      </div>
+      <div class="carousel-mobile-slide">
+        <img src="img/mobile-cabinet2.jpg" alt="Cabinet — Baie de Somme" loading="lazy">
+      </div>
+      <div class="carousel-mobile-slide">
+        <img src="img/mobile-cabinet3.jpg" alt="Cabinet — Baie de Somme" loading="lazy">
+      </div>
+      <div class="carousel-mobile-slide">
+        <img src="img/mobile-cabinet4.jpg" alt="Cabinet — Baie de Somme" loading="lazy">
+      </div>
+      <div class="carousel-mobile-slide">
+        <img src="img/mobile-cabinet1.jpg" alt="Cabinet — Baie de Somme" loading="lazy">
+      </div>
+    </div>
+
+    <button class="carousel-mobile-btn prev-mobile-btn" aria-label="Image précédente">❮</button>
+    <button class="carousel-mobile-btn next-mobile-btn" aria-label="Image suivante">❯</button>
+
+    <div class="carousel-mobile-nav">
+      <div class="carousel-mobile-dot active"></div>
+      <div class="carousel-mobile-dot"></div>
+      <div class="carousel-mobile-dot"></div>
+      <div class="carousel-mobile-dot"></div>
+      <div class="carousel-mobile-dot"></div>
+    </div>
   </div>
 </section>
 
@@ -1223,25 +1552,32 @@ css.modal-overlay {
     <div class="review-card">
       <div class="review-quote">"</div>
       <div class="stars">★★★★★</div>
-      <p class="review-text">Shirley a réussi à me faire "lâcher prise", et ça c'est exceptionnel ! Un pur moment de sérénité, de détente et d'apaisement, un moment rien que pour moi.</p>
-      <div class="review-author">Chantal</div>
-      <div class="review-date">Janvier 2023</div>
+      <p class="review-text">Moi et mon conjoint avons fait un soin avec Shirley. Nous avons de suite ressenti un bien-être intérieur. Shirley est une personne incroyable. Son intuition donne une toute autre dimension à ce soin. Quand on parle de don du coeur, c'est tout à fait ça. Ses ressentis sont justes et saisissants. On prend, on laisse, on a le choix mais ce qu'elle nous a confié à la fin du soin a été en résonnance avec notre situation et nous ont éclairé pour la suite. Merci Shirley 🙏🌈🌞🌻</p>
+      <div class="review-author">Emilie</div>
+      <div class="review-date">Avril 2026</div>
     </div>
     <div class="review-card">
       <div class="review-quote">"</div>
       <div class="stars">★★★★★</div>
-      <p class="review-text">Une belle personne dont l'écoute, la gentillesse, la disponibilité et la douceur font du soin qu'elle vous prodigue une expérience unique. Je reviendrai sans hésiter !</p>
-      <div class="review-author">Caroline Rinaldi</div>
-      <div class="review-date">Mai 2021</div>
+      <p class="review-text">Un immense merci pour ce massage absolument exceptionnel ! Tout était parfait : l’accueil chaleureux, l’écoute, la douceur et le professionnalisme. On sent une vraie maîtrise et surtout une grande attention portée au bien-être.Ce moment nous a fait un bien fou, autant physiquement que mentalement. Une vraie parenthèse de détente, hors du temps.
+Nous recommandons les yeux fermés et reviendrons avec grand plaisir !</p>
+      <div class="review-author">Al Hg</div>
+      <div class="review-date">Février 2026</div>
     </div>
     <div class="review-card">
       <div class="review-quote">"</div>
       <div class="stars">★★★★★</div>
-      <p class="review-text">Des moments uniques et précieux, riches de partages. J'en suis repartie pacifiée, grandie, nourrie. Une bulle enchantée à s'offrir dans un espace doux, chaleureux et intimiste.</p>
-      <div class="review-author">Lua</div>
-      <div class="review-date">Mars 2022</div>
+      <p class="review-text">Merci Shirley pour la découverte étonnante et efficace de ce soin Reiki par mon mari qui était interrogatif. Vous avez identifié précisément les choses et su agir positivement. Nous vous recommandons vivement les soins proposés par Shirley, pro, accueil chaleureux, pertinence.</p>
+      <div class="review-author">Cécile</div>
+      <div class="review-date">Février 2026</div>
     </div>
   </div>
+  <br>
+	<div style="text-align: center; margin-top: 2rem;">
+    <a href="https://www.google.com/search?sa=X&sca_esv=4f2bbda3f57356ff&biw=1490&bih=740&q=avis%20sur%20comme%20une%20plume%20en%20baie%20de%20somme%20massages%20%C3%A9nerg%C3%A9tiques%20et%20sophrologie%20le%20crotoy&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDYzNDQ2NQLSBhbGxpamFgaWGxgZXzFGJZZlFisUlxYpJOfn5qYqlOalKhTklAJZqXkKSYmZqQopqQrFYKncxOLixPTUYoXDK_NSi9IPryzJLCwFclNLgAoKMoryc_LTgepzUhWSi_JL8isXsdLQcAAxcfVH1QAAAA&rldimm=13611352136083395809&tbm=lcl&hl=fr-FR&ved=0CAcQ5foLahcKEwjY_qvv242VAxUAAAAAHQAAAAAQBQ#lkt=LocalPoiReviews&arid=Ci9DQUlRQUNvZENodHljRjlvT2tSemFteDVSbGhhTFdJeVRWbEtZbFpwT0hGeVRGRRAB" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="display: inline-flex; justify-content: center;">Consulter tous les avis</a>
+  </div>
+
+
 </section>
 
 <!-- CONTACT -->
@@ -1919,12 +2255,7 @@ css.modal-overlay {
 			<iframe src="tarifs/tarifsWeekEnd.html"></iframe>
 			</div>
 </div>
-<div id="TarifsRebozo" class="modal-overlay">
-			<div class="modal-content">
-			<button onclick="closeModal('TarifsRebozo')">✕</button>
-			<iframe src="tarifs/tarifsRebozo.html"></iframe>
-			</div>
-</div>
+
 <script>
   function openModal(id) {
     document.getElementById(id).classList.add('active');
@@ -1946,7 +2277,106 @@ css.modal-overlay {
   });
 </script>
 
+
+
+<!--SCRIPT CAROUSSEL-->
+<script>
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+  const nextBtn = document.querySelector('.next-btn');
+  const prevBtn = document.querySelector('.prev-btn');
+  const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+  
+  let currentIndex = 0;
+
+  function updateCarousel(index) {
+    // S'assurer que l'index reste dans les limites
+    if (index < 0) currentIndex = slides.length - 1;
+    else if (index >= slides.length) currentIndex = 0;
+    else currentIndex = index;
+
+    // Déplacement de la piste
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // Mise à jour des points (dots)
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  // Événements boutons
+  nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+  prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+
+  // Événements au clic sur les points
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => updateCarousel(index));
+  });
+
+  // Optionnel : Défilement automatique toutes les 5 secondes
+  setInterval(() => {
+    updateCarousel(currentIndex + 1);
+  }, 5000);
+</script>
+
+
 		
+<!--SCRIPT CAROUSSEL MOBILE-->
+<script>
+  (function() {
+    var mTrack   = document.querySelector('.carousel-mobile-track');
+    var mSlides  = Array.from(document.querySelectorAll('.carousel-mobile-slide'));
+    var mNextBtn = document.querySelector('.next-mobile-btn');
+    var mPrevBtn = document.querySelector('.prev-mobile-btn');
+    var mDots    = Array.from(document.querySelectorAll('.carousel-mobile-dot'));
+    var mIndex   = 0;
+
+    function updateMobileCarousel(index) {
+      if (index < 0) mIndex = mSlides.length - 1;
+      else if (index >= mSlides.length) mIndex = 0;
+      else mIndex = index;
+
+      mTrack.style.transform = 'translateX(-' + (mIndex * 100) + '%)';
+
+      mDots.forEach(function(dot, i) {
+        dot.classList.toggle('active', i === mIndex);
+      });
+    }
+
+    if (mTrack && mNextBtn && mPrevBtn) {
+      mNextBtn.addEventListener('click', function() { updateMobileCarousel(mIndex + 1); });
+      mPrevBtn.addEventListener('click', function() { updateMobileCarousel(mIndex - 1); });
+
+      mDots.forEach(function(dot, i) {
+        dot.addEventListener('click', function() { updateMobileCarousel(i); });
+      });
+
+      // Support swipe tactile
+      var startX = 0;
+      var isDragging = false;
+
+      mTrack.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+      }, { passive: true });
+
+      mTrack.addEventListener('touchend', function(e) {
+        if (!isDragging) return;
+        var deltaX = e.changedTouches[0].clientX - startX;
+        if (Math.abs(deltaX) > 40) {
+          updateMobileCarousel(deltaX < 0 ? mIndex + 1 : mIndex - 1);
+        }
+        isDragging = false;
+      }, { passive: true });
+
+      // Défilement automatique toutes les 5 secondes
+      setInterval(function() {
+        updateMobileCarousel(mIndex + 1);
+      }, 5000);
+    }
+  })();
+</script>
+
 <!--MODALE FOOTER Mentions légales, CGV, RGPD, Déontologie-->
 <script>document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('mentionsModal');if(m.classList.contains('active')){m.classList.remove('active');document.body.style.overflow='';}}});</script>
 <script>document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('cgvModal');if(m.classList.contains('active')){m.classList.remove('active');document.body.style.overflow='';}}});</script>
