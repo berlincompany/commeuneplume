@@ -11,6 +11,7 @@
 <link rel="alternate" hreflang="fr" href="https://massage-commeuneplume.fr" />
 <link rel="alternate" hreflang="en" href="https://massage-commeuneplume.fr/index-en.html" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
 <meta property="og:type" content="website">
@@ -42,6 +43,13 @@
       "postalCode": "80550",
       "addressCountry": "FR"
     },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "38 route du Crotoy",
+      "addressLocality": "RUE",
+      "postalCode": "80120",
+      "addressCountry": "FR"
+    },
 	{
       "@type": "PostalAddress",
       "streetAddress": "1 Chem. des Matelots",
@@ -51,10 +59,15 @@
     }
 	],
   "geo": [
-	{
+  	{
 	  "@type": "GeoCoordinates",
 	  "latitude": "50.2179297",
 	  "longitude": "1.6253877"
+	},
+	{
+	  "@type": "GeoCoordinates",
+	  "latitude": "50.2651615",
+	  "longitude": "1.6656145"
 	},
 	{
 	  "@type": "GeoCoordinates",
@@ -359,7 +372,7 @@ nav {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   opacity: 0.85;
   mix-blend-mode: multiply;
@@ -856,7 +869,7 @@ main h3 {
 main h4 { font-size: 1rem; font-weight: 500; color: var(--earth); margin: 1rem 0 0.4rem; }
 
 /*MODAL TarifSophro*/
-css.modal-overlay {
+modal-overlay {
   display: none;
   position: fixed;
   inset: 0;
@@ -881,7 +894,8 @@ css.modal-overlay {
   width: 100%;
   height: 60vh;
   border: none;
-}					 																												 
+}
+
 /* Table RGPD */
 .data-table {
   width: 100%;
@@ -1025,7 +1039,7 @@ css.modal-overlay {
     width: 90px;
     height: 90px;
     font-size: 0.6rem;
-    bottom: 5rem; left: 0.5rem
+    bottom: 5rem; left: 0.5rem;
     padding: 0.75rem;
   }
   .section { padding: 4rem 2rem; }
@@ -1080,7 +1094,7 @@ css.modal-overlay {
 /* ---- CARROUSEL ---- */
 .carousel-section {
   background: var(--cream);
-  padding: 4rem 2rem;   /
+  padding: 4rem 2rem;   
  
 }
 
@@ -1320,7 +1334,7 @@ css.modal-overlay {
   background: var(--sage);
   width: 16px;
   border-radius: 4px;
-}												
+}
 </style>
 </head>
 <body>
@@ -1359,7 +1373,7 @@ css.modal-overlay {
   <div class="hero-right">
     <div class="hero-bg"></div>
 	<div class="hero-photo">
-	 <img src="img/ShirleyLascols1.jpg"	alt="Shirley Lascols"/>
+	 <img src="img/logo.jpg"	alt="Shirley Lascols"/>
 	</div>						   																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								   
     <div class="hero-shape"></div>
     <div class="hero-badge animate delay-4">
@@ -1426,9 +1440,9 @@ css.modal-overlay {
 <!-- CARROUSSEL DESKTOP (affiché uniquement sur ordinateur)-->	
 	<section class="section carousel-section" id="galerie">
   <div class="section-header">
-    <div>
-      <div class="section-eyebrow">Galerie d'images</div>
-      <h2>Une parenthèse <em>en images</em></h2>
+	<div>
+      <div class="section-eyebrow">Image Gallery</div>
+      <h2>A moment <em>in pictures</em></h2>
     </div>
   </div>
 
@@ -1449,10 +1463,15 @@ css.modal-overlay {
       <!-- Image 3  -->
        <div class="carousel-slide">
         <img src="img/cabinet4.jpg" alt="Cadre apaisant en Baie de Somme">
-      </div>
       <!-- Image 4 -->
+      </div>
       <div class="carousel-slide">
         <img src="img/cabinet1.jpg" alt="Cadre apaisant en Baie de Somme">
+      </div>
+      <!-- Image 5 -->
+      
+      <div class="carousel-slide">
+        <img src="img/ShirleyLascols1.jpg" alt="Cadre apaisant en Baie de Somme">
       </div>
 
     </div>
@@ -1467,6 +1486,8 @@ css.modal-overlay {
       <div class="carousel-dot"></div>
       <div class="carousel-dot"></div>
       <div class="carousel-dot"></div>
+	  <div class="carousel-dot"></div>
+	  <div class="carousel-dot"></div>
     </div>
   </div>
 </section>
@@ -1478,7 +1499,7 @@ css.modal-overlay {
     <h2>Hello,<br>I'm <em>Shirley</em></h2>
     <p>If you need a true moment of relaxation and a chance to reconnect with yourself, you're in the right place.</p>
     <p>At the start of each appointment, we'll take a moment to get to know each other and tailor the treatment to your current needs. My approach is always caring, attentive, and fully personalised.</p>
-    <p>I welcome you in <strong>Saint-Quentin-en-Tourmont</strong>, at the heart of the Bay of Somme ecolodges, or in <strong>Le Crotoy</strong>.</p>
+    <p>I welcome you in <strong><a href="https://energyb.fr" target="_blank" rel="noopener noreferrer">Energy'B</a></strong>,  at the heart of <strong><a href="https://www.baiedesomme.com/fr/page/les-massages-comme-une-plume" target="_blank" rel="noopener noreferrer">the Bay of Somme ecolodges</a></strong> in Saint-Quentin-en-Tourmont, or in <strong>Le Crotoy</strong>.</p>
     <div class="about-signature">Shirley ✦</div>
     <div class="about-certif">
       <div class="certif-item">
@@ -1582,7 +1603,7 @@ Nous recommandons les yeux fermés et reviendrons avec grand plaisir !</p>
   <div class="contact-right">
 	  <div class="contact-items">
 		  <div class="contact-item">
-			<div class="contact-item-icon">📞</div>
+			<div class="contact-item-icon">☎️</div>
 			<div class="contact-item-text">
 			  <strong>Phone</strong>
 			  06 87 35 89 34
@@ -1599,9 +1620,22 @@ Nous recommandons les yeux fermés et reviendrons avec grand plaisir !</p>
 			<div class="contact-item-icon">📍</div>
 			<div class="contact-item-text">
 			  <strong>Consultation locations</strong>
-			  Saint-Quentin-en-Tourmont · Le Crotoy
+         . Ecolodges . Saint-Quentin-en-Tourmont · <a class="contact-item-text" href="https://www.baiedesomme.com/fr/page/les-massages-comme-une-plume" target="_blank" rel="noopener noreferrer">baiedesomme.com</a><br>
+		 . Energy'B . 38 route du Crotoy 80120 RUE . <a class="contact-item-text" href="https://energyb.fr" target="_blank" rel="noopener noreferrer">energyb.fr</a>  <br> 	 
+		 . Le Crotoy .
 			</div>
 		  </div>
+		  	  <div class="contact-item">
+        <div class="contact-item-icon">👍🏻</div>
+        <div class="contact-item-text">
+          <strong>Social Network</strong>
+		    <a href="https://www.facebook.com/bienetresophrocommeuneplume/?locale=fr_FR" target="_blank" rel="noopener noreferrer">
+			  <i class="fa-brands fa-facebook"></i>
+			</a>        
+			<a href="https://www.instagram.com/commeuneplume80/" target="_blank" rel="noopener noreferrer">
+			  <i class="fa-brands fa-instagram"></i>
+			</a>
+		</div>
 		</div>
   </div>
  </section>
@@ -1613,7 +1647,7 @@ Nous recommandons les yeux fermés et reviendrons avec grand plaisir !</p>
   <div class="logo">Comme <span>une plume</span> — Shirley Lascols</div>
   <nav>
     <ul class="nav-links">
-		<li><a href="tarifs/reglement_commeuneplume.pdf" target="_blank" rel="noopener noreferrer">Règlement intérieur</a></li>
+		<li><a href="tarifs/reglement_commeuneplume.pdf" target="_blank" rel="noopener noreferrer">Internal rules</a></li>
 		<li><a href="#" onclick="document.getElementById('mentionsModal').classList.add('active');document.body.style.overflow='hidden';return false;">Legal notice</a></li>
         <li><a href="#" onclick="document.getElementById('cgvModal').classList.add('active');document.body.style.overflow='hidden';return false;">Terms &amp; Conditions</a></li>
 		<li><a href="#" onclick="document.getElementById('rgpdModal').classList.add('active');document.body.style.overflow='hidden';return false;">Privacy Policy</a></li>
